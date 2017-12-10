@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+
+    <h:head>
+        <title>Cursos</title>
+    </h:head>
+    <h:body>
+        <h1>Cursos</h1>
+
+        <h:form>
+            <p:dataTable var="pro" value="#{cursoBean.cursos}">
+
+                <p:column headerText="Id" width="10%">
+                    <h:outputText value="#{pro.id}" />
+                </p:column>
+
+                <p:column headerText="Nombre"  width="30%">
+                    <h:outputText value="#{pro.nombre}" />
+                </p:column>
+
+                <p:column headerText="Descripción"  width="40%">
+                    <h:outputText value="#{pro.codigo}" />
+                </p:column>
+                
+                <p:column headerText="Programa"  width="40%">
+                    <h:outputText value="#{pro.programa.nombre}" />
+                </p:column>
+
+                <p:column headerText="Acciones"  width="30%">
+                    <p:commandButton value="Editar"
+                                     actionListener="#{cursoBean.update(pro)}"
+                                     update="@form"/>
+
+                    <p:commandButton value="Eliminar"
+                                     actionListener="#{cursoBean.delete(pro)}"
+                                     update="@form" />
+                </p:column>
+            </p:dataTable>
+
+
+            <h1> Formulario </h1>
+
+            <h:inputHidden id="id" value="#{cursoBean.curso.id}"/>
+
+            Curso: <p:inputText id="nombre"
+                                   value="#{cursoBean.curso.nombre}" /><br />
+
+            Descripción: <p:inputText id="descripcion"
+                                      value="#{cursoBean.curso.codigo}" /><br />
+            
+            Programa: <p:inputText id="id_programa"
+                                   value="#{cursoBean.programa.id}" />
+
+            <br /><br />
+            
+            <p:commandButton value="Registrar"
+                             actionListener="#{cursoBean.save}" update="@form"/>
+            
+            
+        </h:form>
+
+
+    </h:body>
+</html>
+

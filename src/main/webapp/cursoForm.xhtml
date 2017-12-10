@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Curso</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h1> Formulario de Curso </h1>
+
+            <h:inputHidden id="id" value="#{cursoMultiBean.curso.id}"/>
+
+            Curso: <p:inputText id="nombre"
+                                   value="#{cursoMultiBean.curso.nombre}" /><br />
+
+            Descripción: <p:inputText id="descripcion"
+                                      value="#{cursoMultiBean.curso.codigo}" />
+            
+            Programa: <p:inputText id="programa"
+                                   value="#{cursoMultiBean.curso.programa.id}" />
+           
+            
+            
+            <br /><br />
+
+            <p:commandButton value="Registrar"
+                             action="#{cursoMultiBean.save}" update="@form"/>
+
+
+        </h:form>
+
+    </h:body>
+</html>
+
